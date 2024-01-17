@@ -5,10 +5,26 @@ using namespace std;
 
 int CMyString::msCount = 0;
 
+//void printHello(const char* param) {
+//    cout << param << endl;
+//}
+
+void printHello(const CMyString& param) {
+    cout << param << endl;
+}
+
+CMyString getHello() {
+    CMyString hello;
+    hello.setData("Hello");
+    return hello;
+}
+
 int main()
 {
-    CMyString myString_1, myString2;
-    myString_1.setData("Hello");
-    cout << myString_1.getData() << endl;
+    CMyString result;
+    result = ::getHello();
+    cout << result << endl;
+
+    CMyString test(move(::getHello()));
     return 0;
 }

@@ -4,6 +4,9 @@ class CMyString
 {
 public:
 	CMyString();
+	explicit CMyString(const char* param);
+	CMyString(const CMyString& rhs);
+	CMyString(CMyString&& rhs) noexcept;
 	~CMyString();
 
 	const char* getData() const {
@@ -15,6 +18,13 @@ public:
 	}
 	int getmsCount() const {
 		return msCount;
+	}
+	void operator=(const CMyString& rhs) {
+		this->setData(rhs.getData());
+	}
+	void operator=(CMyString&& rhs) noexcept;
+	operator const char* () const {
+		return m_pszData;
 	}
 	void resetmsCount() {
 		msCount = 0;
