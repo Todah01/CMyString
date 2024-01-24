@@ -26,6 +26,9 @@ public:
 	operator const char* () const {
 		return m_pszData;
 	}
+
+	CMyString operator+(const CMyString& rhs);
+
 	void resetmsCount() {
 		msCount = 0;
 	}
@@ -33,4 +36,8 @@ private:
 	static int msCount;
 	char* m_pszData = nullptr;
 	size_t length = 0;
+public:
+	size_t append(const char* pParam);
 };
+
+CMyString operator+(const char* pLeft, const CMyString& rhs);

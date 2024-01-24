@@ -21,10 +21,12 @@ CMyString getHello() {
 
 int main()
 {
-    CMyString result;
-    result = ::getHello();
-    cout << result << endl;
+    CMyString hello("Hello ");
+    CMyString world("World");
 
-    CMyString test(move(::getHello()));
+    world.append(nullptr);
+
+    cout << hello + world << endl;
+
     return 0;
 }
