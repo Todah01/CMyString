@@ -22,11 +22,13 @@ CMyString getHello() {
 int main()
 {
     CMyString hello("Hello ");
-    CMyString world("World");
+    hello += "World";
 
-    world.append(nullptr);
+    cout << hello << endl;
+    cout << hello[6] << endl;
 
-    cout << hello + world << endl;
+    cout << hello[-1] << endl;
+    cout << hello[20] << endl;
 
     return 0;
 }

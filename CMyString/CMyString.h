@@ -19,15 +19,19 @@ public:
 	int getmsCount() const {
 		return msCount;
 	}
-	void operator=(const CMyString& rhs) {
+	CMyString& operator=(const CMyString& rhs) {
 		this->setData(rhs.getData());
 	}
-	void operator=(CMyString&& rhs) noexcept;
+	CMyString& operator=(CMyString&& rhs) noexcept;
 	operator const char* () const {
 		return m_pszData;
 	}
 
 	CMyString operator+(const CMyString& rhs);
+
+	CMyString& operator+=(const char* pParam);
+
+	char operator[](int index) const;
 
 	void resetmsCount() {
 		msCount = 0;
