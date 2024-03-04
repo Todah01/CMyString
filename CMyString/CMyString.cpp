@@ -81,7 +81,14 @@ CMyString CMyString::operator+(const CMyString& rhs) {
 
 CMyString operator+(const char* pLeft, const CMyString& rhs) {
 	CMyString result(pLeft);
-	result.append(rhs.getData());
+	/*result.append(rhs.getData());*/
+	result.append(rhs.m_pszData);
+	return result;
+}
+
+CMyString CMyString::operator+(const char* pParam) {
+	CMyString result(m_pszData);
+	result.append(pParam);
 	return result;
 }
 

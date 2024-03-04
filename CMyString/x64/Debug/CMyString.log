@@ -2,5 +2,4 @@
   CMyString.cpp
   CMyStringPractice.cpp
   코드를 생성하고 있습니다...
-CMyStringPractice.obj : error LNK2019: "public: char __cdecl CMyString::operator[](int)const " (??ACMyString@@QEBADH@Z)main 함수에서 참조되는 확인할 수 없는 외부 기호
-C:\Users\wobo5\source\repos\CMyString\x64\Debug\CMyStringPractice.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+  CMyString.vcxproj -> C:\Users\wobo5\source\repos\CMyString\x64\Debug\CMyStringPractice.exe
