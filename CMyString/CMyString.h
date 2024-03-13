@@ -23,8 +23,14 @@ public:
 	}
 	CMyString& operator=(const CMyString& rhs) {
 		this->setData(rhs.getData());
+		return *this;
+	}
+	CMyString& operator=(const char* pParam) {
+		this->setData(pParam);
+		return *this;
 	}
 	CMyString& operator=(CMyString&& rhs) noexcept;
+
 	operator const char* () const {
 		return m_pszData;
 	}

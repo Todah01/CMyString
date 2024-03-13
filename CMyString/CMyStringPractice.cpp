@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include "CMyString.h"
+#include "CMyStringEX.h"
 
 using namespace std;
 
@@ -9,23 +9,24 @@ int CMyString::msCount = 0;
 //    cout << param << endl;
 //}
 
-void printHello(const CMyString& param) {
-    cout << param << endl;
-}
-
-CMyString getHello() {
-    CMyString hello;
-    hello.setData("Hello");
-    return hello;
-}
+//void printHello(const CMyString& param) {
+//    cout << param << endl;
+//}
+//
+//CMyString getHello() {
+//    CMyString hello;
+//    hello.setData("Hello");
+//    return hello;
+//}
 
 int main()
 {
-    CMyString hello("Hello ");
-    CMyString world("World");
+    CMyStringEX data;
+    data = "Hello";
+    cout << data << endl;
 
-    hello + "World";
-    "Hello" + world;
+    data = "멍멍이아들";
+    cout << data << endl;
 
     return 0;
 }
