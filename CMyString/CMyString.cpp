@@ -40,6 +40,9 @@ CMyString& CMyString::operator=(CMyString&& rhs) noexcept {
 
 void CMyString::setData(const char* pParam)
 {
+	onSetData(pParam);
+
+	cout << "CMyString::setData()" << endl;
 	if (m_pszData != nullptr)
 		delete[] m_pszData;
 

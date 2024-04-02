@@ -21,12 +21,10 @@ int CMyString::msCount = 0;
 
 int main()
 {
-    CMyStringEX data;
-    data = "Hello";
-    cout << data << endl;
+    CMyString* rdata = new CMyStringEX;
+    rdata->setData("멍멍이아들");
+    cout << rdata->getData() << endl;
 
-    data = "멍멍이아들";
-    cout << data << endl;
-
+    delete rdata;
     return 0;
 }
