@@ -131,10 +131,16 @@
     <ClCompile Include="CMyString.cpp" />
     <ClCompile Include="CMyStringEX.cpp" />
     <ClCompile Include="CMyStringPractice.cpp" />
+    <ClCompile Include="MyList.cpp" />
+    <ClCompile Include="UserData.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMyString.h" />
     <ClInclude Include="CMyStringEX.h" />
+    <ClInclude Include="MyList.h" />
+    <ClInclude Include="UserData.h" />
+    <ClInclude Include="UserInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

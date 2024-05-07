@@ -1,9 +1,9 @@
 ﻿#include <iostream>
-#include "CMyStringEX.h"
+//#include "CMyStringEX.h"
 
 using namespace std;
 
-int CMyString::msCount = 0;
+//int CMyString::msCount = 0;
 
 //void printHello(const char* param) {
 //    cout << param << endl;
@@ -21,10 +21,16 @@ int CMyString::msCount = 0;
 
 int main()
 {
-    CMyString* rdata = new CMyStringEX;
+    /*CMyString* rdata = new CMyStringEX;
     rdata->setData("멍멍이아들");
     cout << rdata->getData() << endl;
 
     delete rdata;
-    return 0;
+    return 0;*/
+
+    //MyList DB;
+    //UserInterface UI(DB);
+    //UI.run();
+
+    //return 0;
 }
