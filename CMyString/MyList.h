@@ -1,20 +1,20 @@
 #pragma once
-#include "UserData.h"
+#include "MyNode.h"
 
+class MyNode;
 
 class MyList
 {
 public:
-	MyList();
+	MyList(MyNode* pHead);
 	~MyList();
-	UserData* findNode(char* pszName);
-	void addNewNode(char* pszName, char* pszPhone);
-	void searchUser(char* pszName);
+	MyNode* findNode(const char* pszName);
+	int addNewNode(MyNode* pNewNode);
+	int removeNode(const char* pszName);
 	void printAll();
-	void removeNode(char* pszName);
-	void releaseList();
 
-private:
-	UserData g_Head;
+protected:
+	void releaseList();
+	MyNode* g_Head;
 };
 

@@ -49,7 +49,7 @@ public:
 		msCount = 0;
 	}
 private:
-	static int msCount;
+	int msCount;
 	char* m_pszData = nullptr;
 	size_t length = 0;
 public:

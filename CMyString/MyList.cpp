@@ -1,97 +1,97 @@
-#include <iostream>
 #include "MyList.h"
+#include "UserData.h"
+#include <iostream>
+#include <cstring>
+#include <conio.h>
 
 using namespace std;
 
-MyList::MyList() {
-	cout << "MyList()" << endl;
+MyList::MyList(MyNode* pHead) {
+	g_Head = pHead;
 }
 
 MyList::~MyList() {
-	cout << "~MyList()" << endl;
+	
+	releaseList();
 }
 
-UserData* MyList::findNode(char* pszName) {
-	UserData* pTmp = g_Head.pNext;
-	while (pTmp != NULL) {
-		if (strcmp((const char*)pTmp->szName, pszName) == 0)
+MyNode* MyList::findNode(const char* pszKey) {
+
+	MyNode* pTmp = g_Head->pNext;
+
+	while (pTmp != nullptr) {
+
+		if (strcmp(pTmp->getKey(), pszKey) == 0)
 			return pTmp;
 
 		pTmp = pTmp->pNext;
 	}
+
+	return nullptr;
 }
 
-void MyList::addNewNode(char* pszName, char* pszPhone) {
-	UserData* pNewUser = NULL;
+int MyList::addNewNode(MyNode* pNewNode) {
 
-	if (this->findNode(pszName) != NULL)
-		return;
-
-	pNewUser->szName = pszName;
-	pNewUser->szPhone = pszPhone;
-	pNewUser->pNext = NULL;
-
-	pNewUser->pNext = g_Head.pNext;
-	g_Head.pNext = pNewUser;
-
-	return;
-}
-
-void MyList::searchUser(char* pszName) {
-	UserData* pNode = this->findNode(pszName);
-	
-	if (pNode != NULL) {
-		cout << pNode << " "
-			<< pNode->szName << " "
-			<< pNode->szPhone << " "
-			<< pNode->pNext << endl;
+	if (findNode(pNewNode->getKey()) != nullptr) {
+		delete pNewNode;
+		return 0;
 	}
-	else {
-		cout << "ERROR: 데이터를 찾을 수 없습니다." << endl;
-	}
+
+	pNewNode->pNext = g_Head->pNext;
+	g_Head->pNext = pNewNode;
+
+	return 1;
 }
 
-void MyList::printAll() {
-	UserData* pTmp = g_Head.pNext;
-	while (pTmp != NULL) {
-		cout << pTmp << " "
-			<< pTmp->szName << " "
-			<< pTmp->szPhone << " "
-			<< pTmp->pNext << endl;
-		
-		pTmp = pTmp->pNext;
-	}
-}
+int MyList::removeNode(const char* pszName) {
 
-void MyList::removeNode(char* pszName) {
-	UserData* pPrevNode = &g_Head;
-	UserData* pDelete = NULL;
+	MyNode* pPrevNode = g_Head;
+	MyNode* pDelete = nullptr;
 
-	while (pPrevNode->pNext != NULL) {
+	while (pPrevNode->pNext != nullptr) {
+
 		pDelete = pPrevNode->pNext;
-		if (strcmp(pDelete->szName, pszName) == 0) {
-			pPrevNode->pNext = pDelete->pNext;
-			free(pDelete);
 
-			return;
+		if (strcmp(pDelete->getKey(), pszName) == 0) {
+
+			pPrevNode->pNext = pDelete->pNext;
+			delete pDelete;
+
+			return 1;
 		}
 
 		pPrevNode = pPrevNode->pNext;
 	}
 
-	return;
+	return 0;
+}
+
+void MyList::printAll() {
+
+	MyNode* pTmp = g_Head;
+
+	while (pTmp != NULL) {
+		pTmp->printNode();
+		pTmp = pTmp->pNext;
+	}
+
+	cout << "CUserData Counter : \n" << UserData::getUserDataCnt() - 1 << endl;
+
+	_getch();
 }
 
 void MyList::releaseList() {
-	UserData* pTmp = g_Head.pNext;
-	UserData* pDelete = NULL;
 
-	while (pTmp != NULL) {
+	MyNode* pTmp = g_Head;
+	MyNode* pDelete = nullptr;
+
+	while (pTmp != nullptr) {
+
 		pDelete = pTmp;
 		pTmp = pTmp->pNext;
 
-		free(pDelete);
+		delete pDelete;
 	}
 
-	//memset?
+	g_Head = nullptr;
 }
